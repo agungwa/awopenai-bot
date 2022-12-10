@@ -1,5 +1,7 @@
 import { ChatGPTAPI } from "chatgpt";
 import { Telegraf } from "telegraf";
+import dotenv from 'dotenv'
+dotenv.config()
 
 async function chat() {
     const bot = new Telegraf(process.env.TELEGRAM_TOKEN)
@@ -15,9 +17,7 @@ async function chat() {
     bot.on('text', async (ctx) => {
         const response = await api.sendMessage( ctx.message?.text );
         bot.telegram.sendMessage(ctx.chat.id, response);
-
       })
-
 
     bot.launch();
     // Enable graceful stop
