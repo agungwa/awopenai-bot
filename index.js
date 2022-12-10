@@ -26,4 +26,4 @@ const chatAI = () => {
     process.once('SIGTERM', () => bot.stop('SIGTERM'));
 };
 
-module.exports = chatAI
+chatAI()
